@@ -6,10 +6,7 @@ import { NavController, Slides, ToastController, AlertController } from 'ionic-a
     selector: 'page-home',
     templateUrl: 'home.html'
 })
-export class HomePage {   
-    currentHourIndex: number = 0;
-    currentMinutesIndex: number = 0;
-    currentAmPmIndex: number = 0;
+export class HomePage {
 
     sliderHourList = [];
     sliderMinuteList = [];
@@ -48,14 +45,14 @@ export class HomePage {
             if (i == 0 || i == 13) {
                 this.sliderHourList.push({ item: '' });
             } else {
-                this.sliderHourList.push({ item: this.setTime(i) });
+                this.sliderHourList.push({ item: this.addZero(i) });
             }
         }
         for (var i = -1; i <= 60; i++) {
             if (i == -1 || i == 60) {
                 this.sliderMinuteList.push({ item: '' });
             } else {
-                this.sliderMinuteList.push({ item: this.setTime(i) });
+                this.sliderMinuteList.push({ item: this.addZero(i) });
             }
 
         }
@@ -84,7 +81,7 @@ export class HomePage {
         return result;
     }
 
-    private setTime(num: number) {
+    private addZero(num: number) {
         var result: string;
         return result = num < 10 ? '0' + num.toString() : num.toString();
     }
