@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Time Picker
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div>
+		<ion-card>
+			<ion-row style="height:130px;">
+
+				<ion-col col-33>
+					<ion-slides #mySlider1 [options]="mySlideOptions1" pager>
+						<ion-slide *ngFor="let slider of sliderHourList">
+							<h1 class="swiperFont">{{slider.item}}</h1>
+						</ion-slide>
+					</ion-slides>
+				</ion-col>
+				
+				<ion-col col-33>
+					<ion-slides #mySlider2 [options]="mySlideOptions1" pager>
+						<ion-slide *ngFor="let slider of sliderMinuteList">
+							<h1 class="swiperFont">{{slider.item}}</h1>
+						</ion-slide>
+					</ion-slides>
+				</ion-col>
+				
+				<ion-col col-33>
+					<ion-slides #mySlider3 [options]="mySlideOptions1" pager>
+						<ion-slide *ngFor="let slider of sliderAMPMList" >
+							<h1 class="swiperAMPMFont">{{slider.item}}</h1>
+						</ion-slide>
+					</ion-slides>
+				</ion-col>
+			</ion-row>
+		</ion-card>		
+	</div>
+	<button ion-button (click)="getTimeClicked()">Get Time</button>
+</ion-content>
